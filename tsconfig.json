@@ -6,7 +6,6 @@
     "moduleResolution": "bundler",
     "moduleDetection": "force",
     "allowImportingTsExtensions": true,
-    "composite": true,
     "downlevelIteration": true,
     "jsx": "react",
     "jsxFactory": "Html.createElement",

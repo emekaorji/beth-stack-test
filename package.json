@@ -2,6 +2,11 @@
   "name": "beth-stack-demo",
   "module": "index.ts",
   "type": "module",
+  "main": "src/index.tsx",
+  "scripts": {
+    "start": "bun run --watch src/index.tsx"
+  },
+  "typings": "index.d.ts",
   "devDependencies": {
     "bun-types": "latest",
     "typed-html": "^3.0.1"

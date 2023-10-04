@@ -1,6 +1,6 @@
 {
   "name": "beth-stack-demo",
-  "module": "index.ts",
+  "module": "src/index.ts",
   "type": "module",
   "main": "src/index.tsx",
   "scripts": {
@@ -8,7 +8,7 @@
     "push_schema": "bunx drizzle-kit push:sqlite",
     "studio": "bunx drizzle-kit studio"
   },
-  "typings": "index.d.ts",
+  "typings": "src/types/index.d.ts",
   "devDependencies": {
     "bun-types": "latest",
     "drizzle-kit": "^0.19.13",

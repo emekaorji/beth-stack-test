@@ -8,14 +8,16 @@ const BaseHtml = ({ children }: elements.Children) => `
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Personal BETH Stack</title>
   <script src="https://unpkg.com/htmx.org@1.9.3"></script>
+  <script src="https://unpkg.com/hyperscript.org@0.9.9"></script>
 	<style>
 		body {
 			background-color: #000011;
+			color: white;
 			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
 				'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
 				sans-serif;
 		}
-		* {
+		label {
 			color: white;
 		}
 	</style>

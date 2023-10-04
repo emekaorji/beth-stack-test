@@ -1,3 +1,5 @@
+import XMarkIcon from './xMark';
+
 const TodoItem = ({
 	id,
 	title,
@@ -8,7 +10,7 @@ const TodoItem = ({
 	completed: boolean;
 }) => {
 	return (
-		<div>
+		<div class='todoItem'>
 			<input
 				type='checkbox'
 				checked={completed}
@@ -18,10 +20,11 @@ const TodoItem = ({
 			/>
 			<label>{title}</label>
 			<button
+				class='cancel'
 				hx-delete={`/api/todos/${id}`}
 				hx-target='closest div'
 				hx-swap='outerHTML'>
-				X
+				<XMarkIcon />
 			</button>
 		</div>
 	);

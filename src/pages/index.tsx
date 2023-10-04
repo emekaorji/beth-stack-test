@@ -8,7 +8,11 @@ const HomePage = ({ html }: { html: (value: string) => Response }) => {
 		<BaseHtml>
 			<body>
 				<h1>Wouldolist!</h1>
-				<ul id='hello' hx-get='/todos' hx-trigger='load' hx-swap='innerHTML'>
+				<ul
+					id='hello'
+					hx-get='/api/todos'
+					hx-trigger='load'
+					hx-swap='innerHTML'>
 					Todos should render here
 				</ul>
 				<TodoForm />

@@ -16,10 +16,10 @@ const app = new Elysia();
 
 app.use(html()).get('/', HomePage);
 
-app.get('/todos', readTodosHandler);
-app.post('/todos', createTodoHandler, validateCreateTodo);
-app.put('/todos/toggle/:id', updateTodoHandler, validateUpdateTodo);
-app.delete('/todos/:id', deleteTodoHandler, validateDeleteTodo);
+app.get('/api/todos', readTodosHandler);
+app.post('/api/todos', createTodoHandler, validateCreateTodo);
+app.put('/api/todos/toggle/:id', updateTodoHandler, validateUpdateTodo);
+app.delete('/api/todos/:id', deleteTodoHandler, validateDeleteTodo);
 
 // Serve our app
 app.listen(3000);

@@ -12,13 +12,13 @@ const TodoItem = ({
 			<input
 				type='checkbox'
 				checked={completed}
-				hx-put={`/todos/toggle/${id}`}
+				hx-put={`/api/todos/toggle/${id}`}
 				hx-target='closest li'
 				hx-swap='outerHTML'
 			/>
 			<label>{title}</label>
 			<button
-				hx-delete={`/todos/${id}`}
+				hx-delete={`/api/todos/${id}`}
 				hx-target='closest li'
 				hx-swap='outerHTML'>
 				X

@@ -10,6 +10,7 @@
   },
   "typings": "src/types/index.d.ts",
   "devDependencies": {
+    "@flydotio/dockerfile": "latest",
     "bun-types": "latest",
     "drizzle-kit": "^0.19.13",
     "typed-html": "^3.0.1"

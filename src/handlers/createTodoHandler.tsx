@@ -1,24 +1,17 @@
 import { t } from 'elysia';
 import TodoItem from '../components/todoItem';
-import todosDB from '../data/todosDB.json';
+import { todosDB } from '../db';
+import { todos } from '../db/schema';
 
-let lastId = todosDB.length;
-
-const createTodoHandler = ({ body }: { body: { content: string } }) => {
-	if (body.content.length < 1)
-		throw new Error('Pass in some content you morr!');
-	const newTodo = {
-		id: lastId++,
-		title: body.content,
-		completed: false,
-	};
-	todosDB.push(newTodo);
+const createTodoHandler = async ({ body }: { body: { title: string } }) => {
+	if (body.title.length < 1) throw new Error('Pass in some content you morr!');
+	const newTodo = await todosDB.insert(todos).values(body).returning().get();
 	return <TodoItem {...newTodo} />;
 };
 
 export const validateCreateTodo = {
 	body: t.Object({
-		content: t.String(),
+		title: t.String(),
 	}),
 };
 

@@ -1,11 +1,10 @@
 import { t } from 'elysia';
-import todosDB from '../data/todosDB.json';
+import { todosDB } from '../db';
+import { todos } from '../db/schema';
+import { eq } from 'drizzle-orm';
 
-const deleteTodoHandler = ({ params }: { params: { id: number } }) => {
-	const todoIndex = todosDB.findIndex((item) => item.id === params.id);
-	if (todoIndex > -1) {
-		todosDB.splice(todoIndex, 1);
-	}
+const deleteTodoHandler = async ({ params }: { params: { id: number } }) => {
+	await todosDB.delete(todos).where(eq(todos.id, params.id)).run();
 };
 
 export const validateDeleteTodo = {

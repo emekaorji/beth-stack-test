@@ -1,14 +1,22 @@
 import { t } from 'elysia';
 import TodoItem from '../components/todoItem';
-import todosDB from '../data/todosDB.json';
+import { todosDB } from '../db';
+import { todos } from '../db/schema';
+import { eq } from 'drizzle-orm';
 
-const updateTodoHandler = ({ params }: { params: { id: number } }) => {
-	const todo = todosDB.find((item) => item.id === params.id);
-	if (todo) {
-		todo.completed = !todo.completed;
-		return <TodoItem {...todo} />;
-	}
-	return;
+const updateTodoHandler = async ({ params }: { params: { id: number } }) => {
+	const oldTodo = await todosDB
+		.select()
+		.from(todos)
+		.where(eq(todos.id, params.id))
+		.get();
+	const newTodo = await todosDB
+		.update(todos)
+		.set({ completed: !oldTodo?.completed })
+		.where(eq(todos.id, params.id))
+		.returning()
+		.get();
+	return <TodoItem {...newTodo} />;
 };
 
 export const validateUpdateTodo = {

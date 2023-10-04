@@ -1,10 +1,7 @@
 const TodoForm = () => {
 	return (
-		<form
-			hx-post='/api/todos'
-			hx-swap='afterend'
-			hx-target='#hello li:last-of-type'>
-			<input type='text' name='content' placeholder='Enter a new todo' />
+		<form hx-post='/api/todos' hx-swap='beforebegin'>
+			<input type='text' name='title' placeholder='Enter a new todo' />
 			<button type='submit'>Add Todo</button>
 		</form>
 	);

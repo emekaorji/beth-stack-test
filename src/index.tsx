@@ -16,8 +16,8 @@ const app = new Elysia();
 
 app.use(html()).get('/', HomePage);
 
-app.get('/api/todos', readTodosHandler);
 app.post('/api/todos', createTodoHandler, validateCreateTodo);
+app.get('/api/todos', readTodosHandler);
 app.put('/api/todos/toggle/:id', updateTodoHandler, validateUpdateTodo);
 app.delete('/api/todos/:id', deleteTodoHandler, validateDeleteTodo);
 

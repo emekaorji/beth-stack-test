@@ -8,22 +8,22 @@ const TodoItem = ({
 	completed: boolean;
 }) => {
 	return (
-		<li>
+		<div>
 			<input
 				type='checkbox'
 				checked={completed}
 				hx-put={`/api/todos/toggle/${id}`}
-				hx-target='closest li'
+				hx-target='closest div'
 				hx-swap='outerHTML'
 			/>
 			<label>{title}</label>
 			<button
 				hx-delete={`/api/todos/${id}`}
-				hx-target='closest li'
+				hx-target='closest div'
 				hx-swap='outerHTML'>
 				X
 			</button>
-		</li>
+		</div>
 	);
 };
 

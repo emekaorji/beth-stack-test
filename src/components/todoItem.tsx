@@ -14,7 +14,7 @@ const TodoItem = ({
 			<input
 				type='checkbox'
 				checked={completed}
-				hx-put={`/api/todos/toggle/${id}`}
+				hx-put={`/api/todos/${id}`}
 				hx-target='closest div'
 				hx-swap='outerHTML'
 			/>
